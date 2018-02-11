@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proizvodnja namestaja - Ispit</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+  </head>
+  <body ng-app="myApp" ng-controller="MyCtrl as vm">
+
+      <!--  NAVIGACIJA  -->
+    <nav class="navbar navbar-fixed-top">
+          <div class="HeaderTop" >
+              <div class="container">
+                  <div class="collapse navbar-collapse" id="">
+                      <form class="navbar-form text-center" role="search">
+                          <span ng-show="vm.page==='namestaj'" class="HeaderTopText">Pretražite nameštaj </span>
+                          <div ng-show="vm.page==='namestaj'" class="input-group">
+                              <input type="text" class="form-control" placeholder="Ključne reči" ng-model="vm.searchText">
+                              <div class="input-group-btn">
+                                  <button class="btn btn-default btn-search" type="submit" ng-click="vm.init()"><i class="glyphicon glyphicon-search"></i></button>
+                              </div>
+                          </div>
+                          <div class="HeaderTopContent pull-right">
+                              <span class="HeaderTopText"> Pratite nas na</span>
+                              <a href="#"><i class="fa fa-facebook-f fa-lg"></i></a>
+                              <a href="#"><i class="fa fa-youtube-play fa-lg"></i></a>
+                              <button ng-if="vm.user==null" class="adminLogin" ng-click="vm.login()">Admin login</button>
+                              <button ng-if="vm.user!=null" class="adminLogin" ng-click="vm.logout()">Admin logout</button>
+                          </div>
+
+                      </form>
+                  </div>
+              </div>
+          </div><!-- /.HeaderTop-End -->
+            <div class="HeaderBottom">
+                <div class="container">
+                    <div class="navbar-header pull-left">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.png" alt="Univerzitet Singidunum logo" style="width:238px;height:105px"></img>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse pull-right" id="navigacija">
+                        <div class="Menu">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="index.html">Početna</a></li>
+                                <li><a href="#" ng-click="vm.oNama()">O nama</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nameštaj <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="vrsta in vm.listaKategorija">
+                                            <a href="#" ng-click="vm.filterNamestaja(vrsta)">{{ vrsta }}</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="Specifikacija.pdf">Preuzmite PDF katalog  <i class="glyphicon glyphicon-paperclip" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saloni <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" ng-click="vm.selektujDrzavu(drzava, podaci)" ng-repeat="(drzava, podaci) in vm.saloni">{{ drzava }}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" ng-click="vm.kontakt()">Kontakt</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </div><!-- /.HeaderBottom-End -->
+      </nav>
+
+    <section class="SectionTitle">
+        <div class="container">
+            <div class="pull-right">
+                <h2>{{vm.naslov | uppercase}}</h2>
+            </div>
+        </div>
+    </section>
+
+      <div class="container PageContent">
+
+          <!-- HOME PAGE -->
+
+          <div class="row" ng-show="vm.page==='home'">
+              <div class="col-md-6">
+                  <h3>Singidunum nameštaj</h3>
+                  <h4>Kvalitet, udobnost, dizajn.</h4>
+                  <hr />
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+              <div class="col-md-6">
+                  <img src="images/namestaj/primer1.jpg" alt="Garnitura" class="img-responsive" />
+              </div>
+          </div>
+
+          <!--  O NAMA  -->
+
+          <div class="row about" ng-show="vm.page==='about'">
+              <div class="col-md-8 col-md-offset-2">
+                  <img src="images/namestaj/primer2.jpg" alt="TDF" class="img-responsive img-rounded" />
+                      <p>
+                          Lorem ipsum dolor sit amet, ea pro iusto consectetuer, ex vide solum verterem vel. Et viris explicari definiebas vim. Eam mazim quaeque consectetuer in, pro eu eros vitae postea. Et quot phaedrum perpetua pro. Ea hinc laoreet salutandi usu, ex duis appareat nec.
+                          <br />
+                          <br />
+                          Eum simul erroribus et, duo diam atomorum hendrerit eu, percipit ocurreret pri cu. Ex vis malis populo consetetur, tollit graece deseruisse ad qui. In usu saepe sanctus abhorreant, has ad omnium vivendo lobortis, erant meliore an nam. Eu pri purto voluptatibus. Lorem regione blandit te eam, sea id ubique nemore, an quo tation persecuti.
+                          <br />
+                          <br />
+                          Modus legere semper id eum, eu eum ullum delenit. Virtute accumsan sed id, ludus philosophia eam eu. Per an quod epicurei honestatis. Nam no labore virtute referrentur. Vix option aperiri erroribus ne, assum elaboraret eum ad.
+
+                          Utinam bonorum et vis, ad etiam legere honestatis vel. Case meis omittantur ea vix. Mutat iuvaret adipisci qui at, nostro habemus his at. Cum quot dissentias eu, dolorum constituam ne vel. In quo sint scripserit, vix putant repudiare in, no iracundia voluptatum mea.
+
+                          Veniam disputationi ut vel. His ut libris argumentum, mea voluptua intellegat eu. Tempor corpora sit no, has maiorum vivendum at, eu veritus luptatum mel. Eu dicta iuvaret per. Iisque gubergren ei vis, id quo eleifend scriptorem.
+                      </p>
+              </div>
+
+          </div>
+
+          <!-- NAMESTAJ -->
+
+          <div class="container" ng-show="vm.page==='namestaj'">
+                  <div class="row" ng-if="vm.proizvod==null">
+                      <div class="container">
+                          <div class="list-group-horizontal pull-left">
+                              <a href="#" class="list-group-item" ng-click="vm.prikaziSve()">Prikaži sve</a>
+                              <a href="#" ng-repeat="stil in vm.stil" ng-click="vm.filterStil(stil)" class="list-group-item">{{stil}}</a>
+                          </div>
+                            <select ng-model="vm.order" class="pull-right list-group-item sortiranje">
+                                <option id="disabled" value="" disabled="disabled" selected>Sortiraj proizvode po</option>
+                                <option value="naziv">Nazivu od A do Z</option>
+                                <option value="-naziv">Nazivu od Z do A</option>
+                                <option value="cena">Ceni od najniže do najviše</option>
+                                <option value="-cena">Ceni od najviše do njniže</option>
+                                <option ng-show="vm.order!=null" ng-click="vm.ponistiSort()">Ponisti sortiranje</option>
+                            </select>
+                      </div><br />
+                      <div class="col-md-12">
+                          <div class="col-md-4 text-center proizvodi" ng-repeat="el in vm.proizvodi | orderBy: vm.order">
+                              <a href="#" ng-click="vm.selektujProizvod(el)">
+                                  <img src="{{el.img}}" style="width:270px; height:200px;">
+                                  <h3>{{ el.naziv | limitTo: 20 }}</h3>
+                                  <h4 ng-click="vm.filter(el.kategorija)"><small>{{el.kategorija}} </small></h4>
+                                  {{el.cena | currency:"":0}} rsd <br>
+                              </a><br>
+                          </div>
+                      </div>
+                  </div>
+              <div class="row" ng-if="vm.proizvod!=null">
+                  <div class="col-sm-12">
+                      <h2 class="text-center">{{ vm.proizvod.naziv }}</h2>
+                      <hr />
+                  </div>
+                  <div class="col-md-6">
+                      <img src="http://lorempixel.com/512/320/" style="width:512px; height:320px;" />
+                      
+                  </div>
+                  <div class="col-md-6">
+                      <label>Cena: {{ vm.proizvod.cena | currency:"":0 }} rsd</label>
+                      <br>
+                      <label>Materijal: {{ vm.proizvod.materijal }}</label>
+                      <br>
+                      <a href="#" style="text-decoration:none;" ng-click="vm.filterNamestaja(vm.proizvod.kategorija)"><small>{{vm.proizvod.kategorija}} </small></a><br>
+                      <br>
+                      <label>Opis: </label>
+                      <p>{{ vm.proizvod.opis }}</p>
+                  </div>
+              </div>
+           </div>
+
+          <!-- SALONI -->
+
+          <div class="row" ng-show="vm.page==='saloni'">
+              <div class="panel panel-default">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Mesto</th>
+                                  <th>Naziv Salona</th>
+                                  <th>Adresa</th>
+                                  <th>Telefon</th>
+                                  <th>E-Mail</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="salon in vm.selektovanaDrzava">
+                                  <td>{{ salon.mesto }}
+                                      <div class="row" ng-show="salon.edit === true" style="padding:5pt 10pt;">
+                                          <input type="text" ng-model="vm.salon.mesto" class="form-control" placeholder="Mesto">
+                                          <button type="button" class="btn btn-lg btn-warning pull-left" style="margin-top:5pt;" ng-click="vm.cancel(salon)">Odustajem</button>
+                                      </div>
+                                  </td>
+                                  <td>{{ salon.naziv }}
+                                      <div class="row" ng-show="salon.edit === true" style="padding:5pt 10pt;">
+                                          <input type="text" ng-model="vm.salon.naziv" class="form-control">
+                                      </div></td>
+                                  <td>{{ salon.adresa }}
+                                      <div class="row" ng-show="salon.edit === true" style="padding:5pt 10pt;">
+                                          <input type="text" ng-model="vm.salon.adresa" class="form-control" placeholder="salon.adresa">
+                                      </div></td>
+                                  <td>{{ salon.telefon }}
+                                      <div class="row" ng-show="salon.edit === true" style="padding:5pt 10pt;">
+                                          <input type="text" ng-model="vm.salon.telefon" class="form-control" placeholder="Telefon">
+                                      </div></td>
+                                  <td>{{ salon.email }} 
+                                      <div class="row" ng-show="salon.edit === true" style="padding:5pt 10pt;">
+                                          <input type="text" ng-model="vm.salon.email" class="form-control" placeholder="Email">
+                                          <button type="submit" class="btn btn-lg btn-primary pull-right" style="margin-top:5pt;" ng-click="vm.save(salon)">Sačuvaj</button>
+                                      </div>
+                                  <button type="button" class="btn btn-default btn-xs pull-right" 
+                                     ng-show="vm.user!=null && salon.edit === false" ng-click="vm.selektujSalon(salon)">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                        </button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+              </div>
+          </div>
+
+          <!--  KONTAKT  -->
+
+          <section id="contact" ng-show="vm.page==='contact'">
+              <div class="container">
+                  <div class="well well-sm">
+                      <h3><strong>Namestaj Singidunum D.O.O.</strong></h3>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-7">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.8910340329608!2d20.476304415318744!3d44.78302677909877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a70676af6ff69%3A0x51026478310188be!2sSingidunum!5e0!3m2!1sen!2srs!4v1517306339646" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      </div>
+                      <div class="col-md-5">
+                          <h4><strong>Pišite nam</strong></h4>
+                          <form>
+                              <div class="form-group">
+                                  <input type="text" class="form-control" name="" value="" placeholder="Ime">
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+                              </div>
+                              <div class="form-group">
+                                  <input type="tel" class="form-control" name="" value="" placeholder="Telefon">
+                              </div>
+                              <div class="form-group">
+                                  <textarea class="form-control" name="" rows="3" placeholder="Poruka"></textarea>
+                              </div>
+                              <button class="btn btn-default" type="submit" name="button">
+                                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Pošalji
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+      </div>    
+      
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+      <!--  MODAL LOGIN I REGISTRACIJA  -->
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+          <h3 class="modal-title text-center" id="modal-title" ng-if="$ctrl.stanje == 'Login'">Login</h3>
+          <h3 class="modal-title text-center" id="modal-title" ng-if="$ctrl.stanje == 'Registracija'">Registracija</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <section class="login-form" ng-if="$ctrl.stanje == 'Login'">
+              <form class="form-signin">
+                  <input type="text" placeholder="Korisničko ime" required
+                    class="form-control input-lg" ng-model="$ctrl.username" />
+                  <input type="password" class="form-control input-lg"
+                    placeholder="Lozinka" required ng-model="$ctrl.password" />
+                  <button class="btn btn-lg btn-primary btn-block" ng-click="$ctrl.login()">Sign in</button>
+                  <div>
+                      <a href="#" ng-click="$ctrl.stanje='Registracija';">Napravi novi nalog</a>
+                  </div>
+              </form>
+          </section>
+          <section class="login-form" ng-if="$ctrl.stanje == 'Registracija'">
+              <form class="form-signin">
+                  <input type="text" placeholder="Korisnicko ime" required
+                    class="form-control input-lg" ng-model="$ctrl.username" />
+                  <input type="password" class="form-control input-lg"
+                    placeholder="Lozinka" required ng-model="$ctrl.password" />
+                  <input type="password" class="form-control input-lg"
+                    placeholder="Ponovi lozinku" required ng-model="$ctrl.confirmPassword" />
+                  <button class="btn btn-lg btn-primary btn-block" ng-click="$ctrl.register()">Registracija</button>
+                  <div>
+                      <a href="#" ng-click="$ctrl.stanje='Login';">Sign in</a>
+                  </div>
+              </form>
+          </section>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Odustani</button>
+        </div>
+    </script>
+
+  </body>
+</html>

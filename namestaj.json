@@ -1,0 +1,132 @@
+﻿[
+  {
+    "naziv": "Denver",
+    "kategorija": "Trosed, dvosed i fotelja",
+    "img": "http://dummyimage.com/179x192.jpg/ff4444/ffffff",
+    "opis": "fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel",
+    "stil": "Moderan",
+    "materijal": "Štof",
+    "cena": 68999,
+    "id": 1
+  },
+  {
+    "naziv": "Nikolas",
+    "kategorija": "Trosed, dvosed i fotelja",
+    "img": "http://dummyimage.com/195x111.jpg/5fa2dd/ffffff",
+    "opis": "metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam",
+    "stil": "Klasičan",
+    "materijal": "Eko koža",
+    "cena": 115999,
+    "id": 2
+  },
+  {
+    "naziv": "Aurora",
+    "kategorija": "Ugaona garnitura",
+    "img": "http://dummyimage.com/244x228.jpg/dddddd/000000",
+    "opis": "curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis",
+    "stil": "Moderan",
+    "materijal": "Eko koža",
+    "cena": 95999,
+    "id": 3
+  },
+  {
+    "naziv": "London",
+    "kategorija": "Ležaji, kauči i bračni kreveti",
+    "img": "http://dummyimage.com/183x227.jpg/dddddd/000000",
+    "opis": "eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio",
+    "stil": "Retro",
+    "materijal": "Štof",
+    "cena": 33999,
+    "id": 4
+  },
+  {
+    "naziv": "Mila",
+    "kategorija": "Ležaji, kauči i bračni kreveti",
+    "img": "http://dummyimage.com/233x209.jpg/cc0000/ffffff",
+    "opis": "mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis",
+    "stil": "Klasičan",
+    "materijal": "Štof",
+    "cena": 21999,
+    "id": 5
+  },
+  {
+    "naziv": "Ring",
+    "kategorija": "Fotelje, stolice i klub garniture",
+    "img": "http://dummyimage.com/161x113.jpg/cc0000/ffffff",
+    "opis": "morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat",
+    "stil": "Klasičan",
+    "materijal": "Štof",
+    "cena": 12999,
+    "id": 6
+  },
+  {
+    "naziv": "Ana",
+    "kategorija": "Fotelje, stolice i klub garniture",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Moderan",
+    "materijal": "Eko koža",
+    "cena": 36999,
+    "id": 7
+  },
+  {
+    "naziv": "Sorrento",
+    "kategorija": "Trosed, dvosed i fotelja",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Klasičan",
+    "materijal": "Eko koža",
+    "cena": 68999,
+    "id": 8
+  },
+  {
+    "naziv": "Napoli",
+    "kategorija": "Trosed, dvosed i fotelja",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Retro",
+    "materijal": "Štof",
+    "cena": 136999,
+    "id": 9
+  },
+  {
+    "naziv": "Ina",
+    "kategorija": "Ugaona garnitura",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Moderan",
+    "materijal": "Štof",
+    "cena": 74999,
+    "id": 10
+  },
+  {
+    "naziv": "Palma",
+    "kategorija": "Ležaji, kauči i bračni kreveti",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Moderan",
+    "materijal": "Eko koža",
+    "cena": 89999,
+    "id": 11
+  },
+  {
+    "naziv": "Cezar",
+    "kategorija": "Ležaji, kauči i bračni kreveti",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Retro",
+    "materijal": "Eko koža",
+    "cena": 66999,
+    "id": 12
+  },
+  {
+    "naziv": "Venus",
+    "kategorija": "Fotelje, stolice i klub garniture",
+    "img": "http://dummyimage.com/123x177.jpg/cc0000/ffffff",
+    "opis": "nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "stil": "Klasičan",
+    "materijal": "Eko koža",
+    "cena": 8999,
+    "id": 13
+  }
+]
